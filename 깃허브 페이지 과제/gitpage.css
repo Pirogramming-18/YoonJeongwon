@@ -1,0 +1,173 @@
+body {
+  /* background-image: linear-gradient(rgb(51, 51, 51) 80%, white 80%); */
+  background-color: rgb(51, 51, 51);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.center-align {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+#header-right, #header-left {
+  display: inline-block;
+}
+
+#header-right {
+  float: right;
+  vertical-align: middle;
+}
+
+#main-logo {
+  fill: white;
+}
+
+#searchinput {
+  width: 180px; height: 19px;
+  background-color: rgba(139, 139, 139, 0.372);
+}
+
+#menu-bar li {
+  display: inline-block;
+  color: white;
+  margin: 5px;
+}
+
+.check {
+  vertical-align: middle;
+  fill: rgb(183, 183, 183);
+}
+
+#menu-bar2 li {
+  display: inline-block;
+  color: white;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+#signup-border {
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: white;
+  padding: 7px;
+}
+
+.searchbar {
+  outline: none;
+}
+
+.whitet {
+  color: white;
+}
+
+.main-l {
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  text-align: left;
+  margin: auto;
+  position: relative;
+  top: 135px;
+  right: -63px;
+  color: rgb(167, 167, 167);
+}
+
+.main-r {
+  display: inline-block;
+  width: 450px;
+  height: 500px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  vertical-align: top;
+}
+
+#rtext{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+input {
+  width: 90%; height: 30px;
+  border-color: rgb(210, 210, 210);
+  border-radius: 3px;
+}
+
+.inputty:focus{
+    background-color:#cfe8ff;
+}
+
+#namelabel {
+  position: relative;
+  right: 170px;
+} 
+
+#maillabel {
+  position: relative;
+  right: 186px;
+} 
+
+#pwlabel {
+  position: relative;
+  right: 172px;
+}
+
+.bluet {
+  text-decoration: solid;
+  color: rgb(59, 153, 248);
+}
+
+.butcol {
+  background-color: #43bd47;
+  width: 90%; height: 60px;
+  border: none;
+  color: white;
+  border-radius: 4px;
+}
+
+#footer {
+  display: block;
+  height: 170px;
+  background-color: white;
+  position: relative;
+  top: 60px;
+}
+
+#botimg {
+  display: inline-block;
+  background-image: url(./gitback.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  left: 850px;
+  top: 0px;
+  width: 407px;
+  height: 170px;
+}
