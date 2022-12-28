@@ -286,10 +286,6 @@ nav li.more:first-child span:first-child {
   height: 20px;
 }
 
-#search-ranking:hover ul {
-  display: inline-block;
-}
-
 #search-ranking ul {
   display: none;
   list-style: none;
@@ -302,7 +298,29 @@ nav li.more:first-child span:first-child {
   position: absolute;
   top: -15px;
   right: 0;
+  z-index: 100;
 }
+
+#z-example {
+  position: absolute;
+  background: yellow;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+#z-inner {
+  position: absolute;
+  background: red;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+}
+
+#search-ranking:hover ul {
+  display: inline-block;
+}
+
 
 #rank-number {
   margin-top: -9px; 
