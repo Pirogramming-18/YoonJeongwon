@@ -172,11 +172,11 @@ nav ul {
   list-style: none;
 }
 
-nav li {
+#nav-menu li {
   display: inline-block;
 }
 
-nav li span:first-child {
+#nav-menu li span:first-child {
   height: 16px;
   display: inline-block;
   background-image: url(./sp_nav.png);
@@ -280,12 +280,32 @@ nav li.more:first-child span:first-child {
 
 #search-ranking {
   position: absolute;
-  top: 16px;
-  right: 100px;
+  top: 14px;
+  right: 0;
+  width: 198px;
+  height: 20px;
+}
+
+#search-ranking:hover ul {
+  display: inline-block;
+}
+
+#search-ranking ul {
+  display: none;
+  list-style: none;
+  padding: 17px;
+  margin: 0;
+  width: 332px;
+  height: 334px;
+  border: 1px solid #aaa;
+  background: white;
+  position: absolute;
+  top: -15px;
+  right: 0;
 }
 
 #rank-number {
-  margin-top: -9px;
+  margin-top: -9px; 
   color: #00ab33;
   font-size: 16px;
 }
