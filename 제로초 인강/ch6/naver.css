@@ -517,3 +517,69 @@ main {
   height: 130px;
   background: #555;
 }
+
+#main-category-top {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #ebeef3;
+}
+
+#subject-list, #subject-all, #subject-prev, #subject-next {
+  float: left;
+  height: 45px;
+}
+
+#subject-list {
+  width: 603px;
+}
+
+#subject-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#subject-list li {
+  float: left;
+}
+
+#subject-all, #subject-prev, #subject-next {
+  position: relative;
+  width: 45px;
+  border: none;
+  border-left: 1px solid #ebeef3;
+  background: white;
+}
+
+#subject-all span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 20px;
+  height: 14px;
+  background-position: -218px -257px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+}
+
+#subject-prev span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 8px;
+  height: 16px;
+  background-position: -320px 0;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+}
+
+#subject-next span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 8px;
+  height: 16px;
+  background-position: -320px -52px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+}
