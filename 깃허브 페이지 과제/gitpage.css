@@ -116,11 +116,12 @@ a{
 
 input {
   width: 90%; height: 30px;
-  border-color: rgb(210, 210, 210);
+  border-color: rgb(229, 229, 229);
   border-radius: 3px;
 }
 
-.inputty:focus{
+.inputty:focus,
+.inputty:valid{
     background-color:#cfe8ff;
 }
 
