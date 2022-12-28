@@ -301,22 +301,6 @@ nav li.more:first-child span:first-child {
   z-index: 100;
 }
 
-#z-example {
-  position: absolute;
-  background: yellow;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-}
-
-#z-inner {
-  position: absolute;
-  background: red;
-  width: 50px;
-  height: 50px;
-  z-index: 1000;
-}
-
 #search-ranking:hover ul {
   display: inline-block;
 }
@@ -361,6 +345,49 @@ main {
   vertical-align: top;
   background-color: white;
   margin-bottom: 8px;
+}
+
+#main-login .login-wrapper {
+  padding: 15px 25px;
+}
+
+#main-login .login-wrapper a {
+  display: block;
+}
+
+#main-login .login-text {
+  color: #888;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+#main-login .login-image {
+  background: url(./sp_login.png) 0 -47px no-repeat;
+  display: inline-block;
+  width: 280px;
+  height: 37px;
+}
+
+.login-find {
+  float: left;
+  font-size: 12px;
+  line-height: 38px;
+  color: #666;
+  text-decoration: none;
+}
+
+#main-login .login-signup {
+  float: right;
+  font-size: 12px;
+  line-height: 38px;
+  color: #666;
+  text-decoration: none;
+}
+
+#main-login .login-signup:hover,
+.login-find:hover
+{
+  text-decoration: underline;
 }
 
 #main-second-block {
