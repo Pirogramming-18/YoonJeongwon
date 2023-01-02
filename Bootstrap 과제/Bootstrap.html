@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pirogramming18-Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="./boot.css">
+  <script src="https://kit.fontawesome.com/f95b2ab384.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav id="large-nav" class="navbar navbar-light bg-dark p-2 fixed-top">
+    <div class="navbar-nav d-flex flex-row">
+      <a class="navbar-brand text-light">Pirogramming</a>
+      <a class="nav-link disabled p-2 text-primary">Yoon-Jeong-won</a>
+      <a class="nav-link p-2 text-light" href="#one-page">Intro</a>
+      <a class="nav-link p-2 text-muted nav-hover" href="#two-page">Hightlights</a>
+      <a class="nav-link p-2 text-muted nav-hover" href="#thr-page">Gallary</a>
+      <a class="nav-link p-2 text-muted nav-hover" href="#four-page">Contact</a>
+    </div>
+    <div class="form-inline">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-bs-toggle="modal" data-bs-target="#about-piro">About</button>
+    </div>
+  </nav>
+  <nav id="md-nav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand text-light p-2">Pirogramming</a>
+    <button class="navbar-toggler collapsed m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarsExample09">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link disabled p-2 text-primary">Yoon-Jeong-won</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 text-light" href="#one-page">Intro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 text-muted nav-hover" href="#two-page">Hightlights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 text-muted nav-hover" href="#thr-page">Gallary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 text-muted nav-hover" href="#four-page">Contact</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-bs-toggle="modal" data-bs-target="#about-piro">About</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="ottf-page">
+    <div id="one-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center" id="op-margin">
+            <h2><b>Pirogramming18</b></h2>
+            <p><b>cheer up</b></p>
+            <hr/>
+            <a href="#two-page"  class="btn btn-primary text-light">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-secondary">
+      <div id="two-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h2 class="text-danger"><b>Built On the bootstrap Grid</b></h2>
+              <p>Bootstrap's responsive and grid comes in 4sizes or 'breakpoints':tiny(xs)</p>
+              <p>samll(sm), medium(md) and large(lg). These 4 grid cites enables you</p>
+              <p class="pb-2">creat responsive layouts that behave accordingly on different sizes</p>
+              <a href="#thr-page" class="btn btn-light btn-sm text-muted">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="thr-page">
+        <div class="container">
+          <h2 class="text-primary"><b>Flexible Layouts</b></h2>
+          <hr/>
+          <div class="row">
+            <div class="col-lg-4 col-12 mt-7 text-light">
+              <i class="fa-solid fa-desktop fa-7x"></i>
+              <h4>Responsive</h4>
+              <p>Your cite looks good everywhere</p>
+            </div>
+            <div class="col-lg-4 col-12 mt-7 text-light">
+              <i class="fa-solid fa-heart-circle-check fa-7x"></i>
+              <h4>Responsive</h4>
+              <p>Your cite looks good everywhere</p>
+            </div>
+            <div class="col-lg-4 col-12 mt-7 text-light">
+              <i class="fa-regular fa-star fa-7x"></i>
+              <h4>Responsive</h4>
+              <p>Your cite looks good everywhere</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <img src="http://placekitten.com/300/200" class="mb-4" alt="" />
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <img src="http://placekitten.com/300/200" class="mb-4" alt="" />
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <img src="http://placekitten.com/300/200" class="mb-4" alt="" />
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <img src="http://placekitten.com/300/200" class="mb-4" alt="" />
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <img src="http://placekitten.com/300/200" class="mb-4" alt="" />
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <img src="http://placekitten.com/300/200" class="mb-4" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="four-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mb-4">
+              <h2 class="text-primary"><b>Get in Touch</b></h2>
+              <hr class="mb-5"/>
+            </div>
+            <div class="col-lg-4 col-12">
+              <input type="text" placeholder="name">
+            </div>
+            <div class="col-lg-4 col-12">
+              <input type="email" placeholder="email">
+            </div>
+            <div class="col-lg-4 col-12">
+              <input type="text" placeholder="phone">
+            </div>
+            <div class="col-12">
+              <textarea placeholder="Your message here"></textarea>
+            </div>
+            <div class="d-grid gap-2 col-3 mx-auto mt-4">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nice-job">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-dark" id="footer-con">
+    <div class="container py-3 px-5">
+      <div class="row">
+        <div class="col-lg-4 col-12 text-start">
+          <p class="text-info">Infomation</p>
+          <p class="text-light">Product</p>
+          <p class="text-light">Service</p>
+          <p class="text-light">Benefit</p>
+          <p class="text-light">Developer</p>
+        </div>
+        <div class="col-lg-4 col-12 text-start">
+          <p class="text-info">About</p>
+          <p class="text-light">Contact us</p>
+          <p class="text-light">Delivery Infomation</p>
+          <p class="text-light">Privacy Policy</p>
+          <p class="text-light">Trauma&Condition</p>
+        </div>
+        <div class="col-lg-4 col-12 text-start">
+          <p class="text-info">Stay Posted</p>
+          <div>
+            <input type="email" placeholder="Tell me your email">
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nice-job">Subscribe for updates</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Send & Subscribe Modal -->
+  <div class="modal fade text-align" id="nice-job" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Nice-Job!</h1>
+        </div>
+        <div class="modal-body">
+          <p>You clicked the button but it doesn't<br>actually go anywhere</p>
+          <p class="text-muted">Learn more at Bootstrap</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div class="modal fade" id="about-piro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog text-white">
+      <div class="modal-content bg-secondary">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5 text-center" id="staticBackdropLabel">피로그래밍 18기</h5>
+        </div>
+        <div class="modal-body">
+          <h4 class="text-center">파이팅!</h4>
+          <p class="text-center">힘들지만 재밌어요,,, 꽤나,,, 진짜일까,,, <br>힘들더라도 계속해서 달려 볼게요!!!!!</p>
+        </div>
+        <div class="modal-footer d-flex">
+          <span class="text-primary">Download</span>
+          <button type="button" class="btn btn-info text-dark" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
