@@ -112,10 +112,6 @@
   width: 100%;
 }
 
-#about-piro{
-  border-radius: 0 !important;
-}
-
 #four-page input:focus,
 #four-page textarea:focus,
 #footer-con input:focus {
