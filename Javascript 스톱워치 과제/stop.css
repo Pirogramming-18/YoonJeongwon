@@ -1,0 +1,32 @@
+
+.buttons button,
+.del {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.watch-out,
+.timerDisplay {
+  border-radius: 5px;
+}
+
+.buttons button,
+#stopWrap button {
+  font-size: 10px;
+}
+
+tr td:nth-of-type(2) {
+  text-align: center;
+}
+
+thead {
+  border-radius: 5px;
+}
+
+.sw1 p,
+#stopWrap p {
+  font-size: 5px;
+}

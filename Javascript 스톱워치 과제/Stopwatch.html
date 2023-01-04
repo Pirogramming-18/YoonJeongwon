@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piro18_garden_stopwatch</title>
+  <link rel="stylesheet" href="stop.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/f95b2ab384.js" crossorigin="anonymous"></script>
+</head>
+<body class="d-flex align-content-center justify-content-around">
+  <div class="d-flex flex-column align-items-center justify-content-center sw1">
+    <h5 class="watch-title">
+      <i class="fa-solid fa-stopwatch"></i><b> 피로그래밍 스톱워치1</b>
+    </h5>
+    <div class="watch-out bg-danger p-3">
+      <div class="timerDisplay bg-white mb-2 text-center p-2">00 : 00 : 00 : 00</div>
+      <div class="buttons text-center">
+        <button class="btn btn-light p-1" id="start-btn">start</button>
+        <button class="btn btn-light p-1" id="stop-btn">stop</button>
+        <button class="btn btn-light p-1" id="reset-btn">reset</button>
+      </div>
+    </div>
+    <div class="record-con m-2">
+      <table>
+        <thead class="bg-danger">
+          <tr class="p-4">
+            <th class="p-1"><input type="checkbox" class="allCheck"></th>
+            <th class="px-5">구간 기록</th>
+            <th class="del p-1"><i class="fa-solid fa-trash"></i></th>
+          </tr>
+        </thead>
+        <tbody class="recordList">
+          <tr>
+            <td><input type="checkbox" class="check"></td>
+            <td>00 : 00 : 00 : 00</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check"></td>
+            <td>00 : 00 : 00 : 01</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-muted small">동적 자료형에 이벤트 처리 연결을 어떻게 할까요...</p>
+  </div>
+
+  <div id="stopWrap">
+    <section class="stop-wrapper text-center">
+        <h5><i class="fa-solid fa-stopwatch"></i><b> 피로그래밍 스톱워치2</b></h5>
+        <p id="stop-full-record">
+            <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="mseconds">00</span>
+        </p>
+        <button id="btnStart" class="btn btn-primary">Start</button>
+        <button id="btnStop" class="btn btn-primary">Stop</button>
+        <button id="btnReset" class="btn btn-primary">Reset</button>
+    </section>
+    <ul id="stop-record" class="text-center pe-4">
+
+    </ul>
+    <p class="text-muted small text-center">리셋시 전체 삭제는 가능...</p>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="stop.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
