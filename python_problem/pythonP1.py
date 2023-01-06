@@ -27,13 +27,15 @@ def speak_num(name):
     else:
       input_num = input('정수를 입력하세요')
 
-while True:
-  speak_num('playerA')
-  if num == 31:
-    print('PlayerB win!')
-    break
-  speak_num('playerB')
-  if num == 31:
-    print('PlayerA win!')
-    break
+def brGame(name1, name2):
+  while True:
+    speak_num(name1)
+    if num == 31:
+      print(name2, 'win!')
+      break
+    speak_num(name2)
+    if num == 31:
+      print(name1, 'win!')
+      break
 
+brGame('playerA', 'playerB')
