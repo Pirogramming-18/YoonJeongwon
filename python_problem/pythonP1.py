@@ -6,7 +6,6 @@ def print_play(input_num, name):
     num += 1
     print(name, ':', num)
     if(num == 31):
-      print('Game end')
       break
 
 def speak_num(name):
@@ -31,8 +30,10 @@ def speak_num(name):
 while True:
   speak_num('playerA')
   if num == 31:
+    print('PlayerB win!')
     break
   speak_num('playerB')
   if num == 31:
+    print('PlayerA win!')
     break
 
