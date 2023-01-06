@@ -43,14 +43,14 @@ def Menu2() :
 ##############  menu 3
 def Menu3() :
   if students_info:
-    print('------------------------------------')
+    print('----------------------------------------')
     print('name\t\tmid\tfinal\tgrade')
-    print('------------------------------------')  
+    print('----------------------------------------')  
     for i in students_info:
       if len(students_info[i]) == 3:
-        print(i,'\t\t',students_info[i][0],'\t',students_info[i][1],'\t',students_info[i][2])
+        print('{:<16}{:<9}{:<9}{:<9}'.format(i,students_info[i][0],students_info[i][1],students_info[i][2]))
       elif len(students_info[i]) == 2:
-        print(i,'\t\t',students_info[i][0],'\t',students_info[i][1],'\t')
+        print('{:<16}{:<9}{:<9}'.format(i,students_info[i][0],students_info[i][1]))
   else:
     print('No student data!')
   #출력 코딩
@@ -73,45 +73,48 @@ def Menu4():
   #학생 정보 삭제하는 코딩
 
 #학생 정보를 저장할 변수 초기화
-print("*Menu*******************************")
-print("1. Inserting students Info(name score1 score2)")
-print("2. Grading")
-print("3. Printing students Info")
-print("4. Deleting students Info")
-print("5. Exit program")
-print("*************************************")
-while True :
-  choice = input("Choose menu 1, 2, 3, 4, 5 : ")
-  if choice == "1":
-    Menu1()
-    #학생 정보 입력받기
-    #예외사항 처리(데이터 입력 갯수, 이미 존재하는 이름, 입력 점수 값이 양의 정수인지)
-    #예외사항이 아닌 입력인 경우 1번 함수 호출 
+def program():
+  print("*Menu*******************************")
+  print("1. Inserting students Info(name score1 score2)")
+  print("2. Grading")
+  print("3. Printing students Info")
+  print("4. Deleting students Info")
+  print("5. Exit program")
+  print("*************************************")
+  while True :
+    choice = input("Choose menu 1, 2, 3, 4, 5 : ")
+    if choice == "1":
+      Menu1()
+      #학생 정보 입력받기
+      #예외사항 처리(데이터 입력 갯수, 이미 존재하는 이름, 입력 점수 값이 양의 정수인지)
+      #예외사항이 아닌 입력인 경우 1번 함수 호출 
 
-  elif choice == "2":
-    Menu2()
-    #예외사항 처리(저장된 학생 정보의 유무)
-    #예외사항이 아닌 경우 2번 함수 호출
-    #"Grading to all students." 출력
+    elif choice == "2":
+      Menu2()
+      #예외사항 처리(저장된 학생 정보의 유무)
+      #예외사항이 아닌 경우 2번 함수 호출
+      #"Grading to all students." 출력
 
-  elif choice == "3":
-    Menu3()
-    #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
-    #예외사항이 아닌 경우 3번 함수 호출
+    elif choice == "3":
+      Menu3()
+      #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
+      #예외사항이 아닌 경우 3번 함수 호출
 
-  elif choice == "4":
-    Menu4()
-    #예외사항 처리(저장된 학생 정보의 유무)
-    #예외사항이 아닌 경우, 삭제할 학생 이름 입력 받기
-    #입력 받은 학생의 존재 유무 체크 후, 없으면 "Not exist name!" 출력
-    #있으면(예를 들어 kim 이라 하면), 4번 함수 호출 후에 "kim student information is deleted." 출력
+    elif choice == "4":
+      Menu4()
+      #예외사항 처리(저장된 학생 정보의 유무)
+      #예외사항이 아닌 경우, 삭제할 학생 이름 입력 받기
+      #입력 받은 학생의 존재 유무 체크 후, 없으면 "Not exist name!" 출력
+      #있으면(예를 들어 kim 이라 하면), 4번 함수 호출 후에 "kim student information is deleted." 출력
 
-  elif choice == "5":
-    print("Exit Program!")
-    break
-    #프로그램 종료 메세지 출력
-    #반복문 종료
+    elif choice == "5":
+      print("Exit Program!")
+      break
+      #프로그램 종료 메세지 출력
+      #반복문 종료
 
-  else :
-    print("Wrong number. Choose again.")
-    #"Wrong number. Choose again." 출력
+    else :
+      print("Wrong number. Choose again.")
+      #"Wrong number. Choose again." 출력
+
+program()
