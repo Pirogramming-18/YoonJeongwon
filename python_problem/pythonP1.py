@@ -3,8 +3,11 @@ num = 0
 def print_play(input_num, name):
   global num
   for i in range(int(input_num)):
-    print(name, ':', num+1+i)
-  num += int(input_num)
+    num += 1
+    print(name, ':', num)
+    if(num == 31):
+      print('Game end')
+      break
 
 def speak_num(name):
   input_num = input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :')
@@ -25,7 +28,11 @@ def speak_num(name):
     else:
       input_num = input('정수를 입력하세요')
 
-
-speak_num('playerA')
-speak_num('playerB')
+while True:
+  speak_num('playerA')
+  if num == 31:
+    break
+  speak_num('playerB')
+  if num == 31:
+    break
 
