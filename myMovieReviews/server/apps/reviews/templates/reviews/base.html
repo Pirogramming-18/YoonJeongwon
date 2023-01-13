@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Movie Reviews</title>
+  <link rel="stylesheet" href="{% static 'reviews/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'reviews/css/reviews.css' %}">
+</head>
+<body>
+  <header class="d-flex justify-content-between px-5 py-4 border-bottom">
+    <a href="/"><h5>my <b class="text-danger">Movie</b> Reviews</h5></a>
+    <a href="/review/create/"><b>Add a New Reviews</b></a>
+  </header>
+  {% block content %}
+  {% endblock %}
+  <footer class="p-4 text-center bg-dark">
+    <p class="text-light">Piro18 MyMovieReviews 윤정원</p>
+  </footer>
+  <!-- Start Script -->
+  <script src="{% static 'reviews/js/jquery-1.11.0.min.js' %}"></script>
+  <script src="{% static 'reviews/js/jquery-migrate-1.2.1.min.js' %}"></script>
+  <script src="{% static 'reviews/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'reviews/js/templatemo.js' %}"></script>
+  <!-- End Script -->
+</body>
+</html>

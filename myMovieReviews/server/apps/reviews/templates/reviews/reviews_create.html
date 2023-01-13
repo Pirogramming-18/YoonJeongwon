@@ -1,0 +1,17 @@
+{% extends 'reviews/base.html' %}
+
+{% block content %}
+  <div class="p-7 bg-light">
+    {% load crispy_forms_tags %}
+    <h1 class="text-center">Create Review</h1>
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table>
+        {{form | crispy}}
+        {{form.media}}
+      </table>
+      <button type="submit" class="btn btn-primary m-3">Save</button>
+    </form>
+  </div>
+{% endblock %}

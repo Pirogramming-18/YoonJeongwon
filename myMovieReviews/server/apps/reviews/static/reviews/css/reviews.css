@@ -1,0 +1,14 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn-primary {
+  display: flex;
+  float: right;
+}
+
+.p-7 {
+  padding: 5rem;
+  margin: 5rem 20rem;
+}
