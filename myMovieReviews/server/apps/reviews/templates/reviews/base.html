@@ -8,6 +8,7 @@
   <title>My Movie Reviews</title>
   <link rel="stylesheet" href="{% static 'reviews/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'reviews/css/reviews.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
   <header class="d-flex justify-content-between px-5 py-4 border-bottom">
@@ -25,5 +26,23 @@
   <script src="{% static 'reviews/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'reviews/js/templatemo.js' %}"></script>
   <!-- End Script -->
+  <script>
+    const selectElem = document.getElementById('selectbox')
+    selectElem.addEventListener('change', () => {
+      const index = selectElem.selectedIndex;
+    })
+    $(document).ready(function(){
+      var sort = getUrlParameter('sort');
+      if(sort == 'title'){
+          $('.sort-title').prop('selected', 'selected')
+      }else if(sort == 'star'){
+          $('.sort-star').prop('selected', 'selected')
+      }else if(sort == 'time'){
+          $('.sort-time').prop('selected', 'selected')
+      }else{
+          $('.sort-date').prop('selected', 'selected')
+      }
+      });
+  </script>
 </body>
 </html>

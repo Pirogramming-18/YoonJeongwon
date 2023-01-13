@@ -1,7 +1,18 @@
 {% extends 'reviews/base.html' %}
 
 {% block content %}
-  <div class="container mt-5" id="r_list_main">
+  <div class="d-flex justify-content-end me-5 mt-5">
+    <form action="/" method="get" id="sort">
+      <select id="selectbox" onchange="location = this.value;">
+        <option class="sort-date" value="/">-----</option>
+        <option class="sort-date" value="?sort=pk">최신순</option>
+        <option class="sort-star" value="?sort=star">별점순</option>
+        <option class="sort-title" value="?sort=title">제목순</option>
+        <option class="sort-time" value="?sort=time">상영시간순</option>
+      </select>
+    </form>
+  </div>
+  <div class="container mt-3" id="r_list_main">
     <div class="row">
       {% for i in reviews %}
         <div class="col-3 p-3 bg-light my-4">

@@ -7,9 +7,20 @@ from django.shortcuts import get_object_or_404
 
 
 def reviews_list(request):
-  reviews = Review.objects.all()
-  return render(request, "reviews/reviews_list.html", { 'reviews':reviews })
+  sort = request.GET.get('sort','')
+  
+  if sort == 'title':
+    reviews = Review.objects.all().order_by("title")
+  elif sort == 'star':
+    reviews = Review.objects.all().order_by("-star")
+  elif sort == 'time':
+    reviews = Review.objects.all().order_by("time")
+  elif sort == 'pk':
+    reviews = Review.objects.all().order_by("-pk")
+  else:
+    reviews = Review.objects.all()
 
+  return render(request, "reviews/reviews_list.html", { 'reviews':reviews })
 
 def reviews_detail(request, pk):
   review = Review.objects.get(pk=pk)
