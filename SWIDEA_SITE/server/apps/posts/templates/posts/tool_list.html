@@ -1,0 +1,45 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+  <div class="text-center mb-5">
+    <h2>DevTool List</h2>
+    <p>개발툴 목록 페이지 입니다. 자신이 사용가능한 개발들의 목록을 확인해 보세요.</p>
+  </div>
+  <hr id="tool-hr" />
+  {% for tool in tools %}
+  <div class="row text-center" id="toolli-content">
+    <div class="col-2">
+      <a href="{% url 'posts:tool_detail' tool.pk %}" class="text-dark font-weight-bold">{{tool.name}}</a>
+    </div>
+    <div class="col-3">
+      <p class="font-weight-bold">{{tool.kind}}</p>
+    </div>
+    <div class="col-7">
+      <p class="text-dark">{{tool.content | truncatechars:40}}</p>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="d-flex justify-content-center mt-5">
+    {% if tools.has_other_pages %}
+      <ul class="pagination">
+        {% if tools.has_previous %}
+          <li><a class="btn btn-sm" href="?page={{ tools.previous_page_number }}">&lt;</a></li>
+        {% else %}
+          <li class="disabled btn btn-sm"><span>&lt;</span></li>
+        {% endif %}
+        {% for i in tools.paginator.page_range %}
+          {% if tools.number == i %}
+            <li class="active bg-light btn btn-sm"><span>{{ i }}</span></li>
+          {% else %}
+            <li><a class="btn btn-sm" href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if tools.has_next %}
+          <li><a class="btn btn-sm" href="?page={{ tools.next_page_number }}">&gt;</a></li>
+        {% else %}
+          <li class="disabled btn btn-sm"><span>&gt;</span></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+  </div>
+{% endblock %}

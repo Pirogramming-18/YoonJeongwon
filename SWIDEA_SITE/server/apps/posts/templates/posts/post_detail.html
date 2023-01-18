@@ -1,0 +1,36 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+  <div class="text-center">
+    <h2>Idea Detail</h2>
+    <p>아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</p>
+  </div>
+  <div class="d-flex align-items-center" id="detail-main">
+    <img src="{{post.image.url}}" height="250rem" width="350rem" alt="" class="p-3" />
+    <div class="ms-4">
+      <h3 class="font-weight-bold">{{post.title}}
+        {% if user in post.like_users.all %}
+          <button class="btn btn-link text-danger disabled">
+            <i class="fa fa-heart fa-2x"></i>
+          </button>
+        {% else %}
+          <button class="btn btn-link text-danger disabled">
+            <i class="fa fa-heart-o fa-2x"></i>
+          </button>
+        {% endif %}
+      </h3>
+      <br>
+      <p>1) 아이디어 관심도</p>
+      <p>{{post.interest}}</p>
+      <p>2) 예상 개발 툴</p>
+      <p class="p_detail"><a href="{% url 'posts:tool_detail' tool_pk %}">{{post.devtool}}</a></p>
+      <p>3) 아이디어 설명</p>
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center m-4">
+    <a href="{% url 'posts:delete' post.pk %}" role="button" class="btn btn-sm btn-danger mx-4">삭제</a>
+    <a href="{% url 'posts:list' %}" role="button" class="btn btn-sm btn-light mx-4">목록</a>
+    <a href="{% url 'posts:update' post.pk %}" role="button" class="btn btn-sm btn-primary mx-4">수정</a>
+  </div>
+{% endblock %}

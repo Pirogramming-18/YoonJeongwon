@@ -1,0 +1,104 @@
+/* list.html + vase.html css */
+
+body {
+  background: url('/static/image/bg-img.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-con {
+  width: 65%;
+}
+
+header {
+  border-bottom: solid 1px rgb(220, 220, 220);
+}
+
+#main-con {
+  background-color:rgba(199, 199, 199, 0.6)
+}
+
+.text-center h2, #color-ch {
+  color: rgb(199, 255, 131);
+  font-weight: bold;
+}
+
+.text-center p{
+  color: white
+}
+
+.card-bg {
+  background-color: rgb(182, 253, 253);
+}
+
+/* detail.html css */
+
+#detail-main {
+  padding: 1rem;
+  border: solid 1px rgb(220, 220, 220);
+  color: white;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+#postlist_main .heart-btn {
+  display: block !important;
+  width: 50px;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.p_detail a {
+  color: rgb(138, 255, 127);
+}
+
+/* tool_list.html css */
+
+#toolli-content {
+  border-bottom: solid 1px rgb(220, 220, 220);
+  margin: 0.8rem 4rem;
+}
+
+#tool-hr{
+  color: rgb(220, 220, 220); 
+  margin: 0.8rem 4rem;
+  height: 1px;
+  opacity: 1;
+}
+
+header a {
+  color: white;
+}
+
+/* tool_detail.html css */
+
+#detail-main {
+  padding: 1rem 2.5rem;
+  border: solid 1px rgb(220, 220, 220);
+  color: white;
+}
+
+#detail-main p a {
+  color: white;
+}
+
+#detail-main .color-tool {
+  color: rgb(138, 255, 127);
+}
+
+#toolde-hr{
+  color: rgb(220, 220, 220); 
+  opacity: 1;
+}
+
+/* create.html css */

@@ -1,0 +1,41 @@
+{% extends 'posts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="text-center">
+    <h2>Idea Register</h2>
+    <p>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!</p>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <!-- <form action="{% url 'posts:create' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p class="text-light">아이디어명:</p>
+      <input name="title" />
+      <br />
+      <p class="text-light">Image:</p>
+      <input type="file" name="image">
+      <br />
+      <p class="text-light">아이디어 설명:</p>
+      <textarea name="content"></textarea>
+      <br />
+      <p class="text-light">아이디어 관심도:</p>
+      <input name="interest" type="number"/>
+      <br />
+      <p class="text-light">예상 개발툴:</p>
+      <input name="devtool" />
+      <br />
+      <div>
+        <input type="submit" , value="SUBMIT" />
+      </div>
+    </form> -->
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table>
+        {{form | crispy}}
+        {{form.media}}
+      </table>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-light m-2">SUBMIT</button>
+      </div>
+    </form>
+    </div>
+{% endblock %}

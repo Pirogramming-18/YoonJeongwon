@@ -1,0 +1,74 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+  <div class="text-center">
+    <h2>Idea List</h2>
+    <p>나의 아이디어를 잊지 말고 기록해보세요</p>
+  </div>
+  <form action="/" method="get" id="sort" class="d-flex justify-content-end me-5 mb-2">
+    <select onchange="location = this.value;" id="selectbox">
+      <option class="sort-pk" value="/">--정렬기준--</option>
+      <option class="sort-pk" value="?sort=pk">등록순</option>
+      <option class="sort-title" value="?sort=title">이름순</option>
+      <option class="sort-new" value="?sort=new">최신순</option>
+      <option class="sort-like" value="?sort=like">찜하기순</option>
+    </select>
+  </form>
+  <div id="postlist_main" class="row">
+    {% for post in posts %}
+    <div class="col-3">
+      <div class="card m-3 card-bg">
+        <img class="card-img-top p-4" src="{{post.image.url}}" alt="{{post}}의 img" height="270rem" width="270rem">
+        <form action="{% url 'posts:likes' post.pk %}" method='POST'>
+          {% csrf_token %}
+          {% if user in post.like_users.all %}
+            <button class="btn btn-link text-danger heart-btn">
+              <i class="fa fa-heart fa-2x"></i>
+            </button>
+          {% else %}
+            <button class="btn btn-link text-danger heart-btn">
+              <i class="fa fa-heart-o fa-2x"></i>
+            </button>
+          {% endif %}
+        </form>
+        <div class="card-body">
+          <a href="{% url 'posts:detail' post.pk %}">{{post.title}}</a>
+          <hr />
+          <p>예상 개발 툴: {{post.devtool}}</p>
+          <p>아이디어 관심도: 
+            <form action="{% url 'posts:list' %}" method="POST">
+              {% csrf_token %}
+              <input type="submit" value=" - " class="btn btn-sm">
+              <span id="input-{{post.pk}}">{{post.interest}}</span>
+              <input type="submit" value=" + " class="btn btn-sm">
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    {% if posts.has_other_pages %}
+      <ul class="pagination">
+        {% if posts.has_previous %}
+          <li><a class="btn btn-sm" href="?page={{ posts.previous_page_number }}">&lt;</a></li>
+        {% else %}
+          <li class="disabled btn btn-sm"><span>&lt;</span></li>
+        {% endif %}
+        {% for i in posts.paginator.page_range %}
+          {% if posts.number == i %}
+            <li class="active bg-light btn btn-sm"><span>{{ i }}</span></li>
+          {% else %}
+            <li><a class="btn btn-sm" href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if posts.has_next %}
+          <li><a class="btn btn-sm" href="?page={{ posts.next_page_number }}">&gt;</a></li>
+        {% else %}
+          <li class="disabled btn btn-sm"><span>&gt;</span></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+  </div>
+{% endblock %}

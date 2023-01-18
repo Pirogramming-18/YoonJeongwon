@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="text-center">
+    <h2>Idea Deatil Update</h2>
+    <p>아이디어 세부내용 수정 페이지 입니다. 아이디어를 구체화하거나 내용을 변경해 보아요.</p>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table>
+        {{form | crispy}}
+        {{form.media}}
+      </table>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-light m-2">SUBMIT</button>
+      </div>
+    </form>
+    </div>
+{% endblock %}

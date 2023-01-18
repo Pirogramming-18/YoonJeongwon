@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+  <div class="text-center">
+    <h2>DevTool Detail</h2>
+    <p>개발툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요.</p>
+  </div>
+  <div id="detail-main">
+    <h2 class="font-weight-bold mt-3 mb-4 color-tool">{{tool.name}}</h2>
+    <p>{{tool.kind}}
+      <br>{{tool.content}}
+    </p>
+    <hr id="toolde-hr">
+    <p class="font-weight-bold color-tool">>만들 수 있는 SW 목록</p>
+    {% for post in tool_posts %}
+      <p><a href="{% url 'posts:detail' post.pk %}">{{post.title}}</a></p>
+    {% endfor %}
+  </div>
+  <div class="d-flex justify-content-center m-4">
+    <a href="{% url 'posts:tool_delete' tool.pk %}" role="button" class="btn btn-sm btn-danger mx-4">삭제</a>
+    <a href="{% url 'posts:tool_list' %}" role="button" class="btn btn-sm btn-light mx-4">목록</a>
+    <a href="{% url 'posts:tool_update' tool.pk %}" role="button" class="btn btn-sm btn-primary mx-4">수정</a>
+  </div>
+{% endblock %}
