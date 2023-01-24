@@ -1,0 +1,16 @@
+#h-title {
+  width: 30rem;
+}
+#main-con {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  border: 1px solid black;
+}
+
+#main-con img {
+  height: 30rem;
+  width: 95%;
+  display: block;
+  margin: 10px;
+}

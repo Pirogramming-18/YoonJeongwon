@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pirostagram</title>
+  <link rel="stylesheet" href="{% static 'posts/css/pirosta.css' %}">
+  <link rel="stylesheet" href="{% static 'posts/css/bootstrap.min.css' %}">
+  <script src="https://kit.fontawesome.com/f95b2ab384.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header id="h-title" class="m-auto d-flex justify-content-between">
+    <h4><i class="fa-brands fa-instagram mx-1"></i>Pirostagram</h4>
+    <a href="{% url 'posts:post_new' %}"><i class="fa-regular fa-square-plus fa-2x"></i></a>
+  </header>
+  <div id="main-con" class="m-auto">
+    <small>로그인해야 모든 구현 가능</small>
+    {% for post in posts %}
+      <div class="post-con">
+        <div class="post-bar d-flex align-items-center">
+          <i class="fa-regular fa-circle-user fa-2x mx-3"></i>
+          <div class="d-flex flex-column">
+            <p class="m-0">{{post.user}}</p>
+            {% if post.local %}
+              <p class="m-0">{{post.local}}</p>
+            {% endif %}
+          </div>
+        </div>
+        <hr class="m-0">
+        <img src="{{post.image.url}}" alt="{{post}}의 img" class="p-2">
+        <div class="post-under d-flex justify-content-between m-2">
+          <div>
+            <span id="p-heart-{{post.pk}}">
+              {% if post.likes %}
+                <i class="fa-solid fa-heart fa-2x" onclick="onClickLike({{post.id}}, 'dislike')"></i>
+              {% else %}
+                <i class="far fa-heart fa-2x" onclick="onClickLike({{post.id}}, 'like')"></i>
+              {% endif %}
+            </span>
+            <i class="fa-regular fa-comment fa-2x"></i>
+            <i class="fa-regular fa-paper-plane fa-2x"></i>
+          </div>
+          <i class="fa-regular fa-bookmark fa-2x"></i>
+        </div>
+        <p class="m-2"><b>{{post.user}}</b>  {{post.content}}</p>
+        <p class="text-secondary m-2">댓글 모두 보기</p>
+        <div id="comment-list-{{post.pk}}">
+          {% for comment in post.comment_set.iterator %}
+            <p class="m-2 comment-{{comment.id}}">
+              <b>{{comment.author}}</b>  {{comment.content}}
+              {% if user.is_authenticated and comment.author == user %}
+                <span class="btn btn-danger comment-btn-{{comment.id}}"
+                onclick="onClickDelete({{comment.id}})">삭제</span>
+              {% endif %}
+            </p>
+          {% endfor %}
+        </div>
+        <div class="d-flex  justify-content-between align-items-center">
+          <i class="fa-regular fa-face-smile fa-2x m-2"></i>
+          <input id="comment-input-{{post.pk}}" class="comment-input" type="text" placeholder="댓글 달기..." style="border:none; width: 70%;" >
+          <div class="comment-btn btn btn-white" id="comment-btn-{{post.pk}}"
+          onclick="onClickCommenet({{post.id}})">게시</div>
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+  </div>
+  <script>
+    const requestLike = new XMLHttpRequest();
+
+    const onClickLike = (id, type) => {
+      const url = "/like_ajax/";
+      requestLike.open("POST", url, true);
+      requestLike.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      requestLike.send(JSON.stringify({id: id, type: type}));
+    };
+
+    requestLike.onreadystatechange = () => {
+      if(requestLike.readyState === XMLHttpRequest.DONE) {
+        if (requestLike.status <400) {
+          const {id, status} = JSON.parse(requestLike.response)
+          const element = document.querySelector(`#p-heart-${id}`); 
+        
+          if( status == 'like' ) {
+            element.innerHTML = `<i class="fa-solid fa-heart fa-2x" onclick="onClickLike(${id}, 'dislike')"></i>`
+          }
+          else {
+            element.innerHTML = `<i class="far fa-heart fa-2x" onclick="onClickLike(${id}, 'like')"></i>`
+          }
+        }
+      }
+    }
+
+
+    const requestComment = new XMLHttpRequest();
+
+    const onClickCommenet = (id) => {
+      const url = "/comment/";
+      requestComment.open("POST", url, true);
+      requestComment.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      let content = document.querySelector(`#comment-input-${id}`).value;
+      let data = {
+        user : '{{user.username}}',
+        post_id : id,
+        content : content,
+      }
+      requestComment.send(JSON.stringify(data));
+    }
+
+    requestComment.onreadystatechange = () => {
+      if(requestComment.readyState === XMLHttpRequest.DONE) {
+        if(requestComment.status < 400) {
+          const {author, post_id, content, comment_id} = JSON.parse(requestComment.response);
+          document.querySelector(`#comment-input-${post_id}`).value = "";
+          const element = document.querySelector(`#comment-list-${post_id}`);
+          let temp = document.createElement("p");
+          temp.classList.add("m-2", `comment-${comment_id}`);
+          let temp2 = document.createElement("b");
+          let temptext2 = document.createTextNode(`${author}`);
+          temp2.appendChild( temptext2 );
+          let temptext = document.createTextNode(`  ${content}`);
+          temp.appendChild( temp2 );
+          temp.appendChild( temptext );
+          let delbtn = document.createElement("span");
+          let deltext = document.createTextNode( '삭제' );
+          delbtn.appendChild( deltext );
+          delbtn.classList.add("btn", "btn-danger", `comment-btn-${comment_id}`);
+          delbtn.setAttribute("onclick", `onClickDelete(${comment_id})`);
+          temp.appendChild(delbtn);
+          element.appendChild(temp);
+        } 
+      }
+    }
+    
+
+    const requestCommentDel = new XMLHttpRequest();
+
+    const onClickDelete = (id) => {
+      const url = "/comment/delete/";
+      requestCommentDel.open("POST", url, true);
+      requestCommentDel.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      let deldata = {
+        comment_id : id,
+      }
+      requestCommentDel.send(JSON.stringify(deldata));
+    }
+
+    requestCommentDel.onreadystatechange = () => {
+      if(requestCommentDel.readyState === XMLHttpRequest.DONE){
+        if(requestCommentDel.status < 400){
+          const { comment_id } = JSON.parse(requestCommentDel.response);
+          document.querySelector(`.comment-${comment_id}`).remove();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
